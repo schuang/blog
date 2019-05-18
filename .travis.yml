@@ -1,0 +1,28 @@
+language: python
+branches:
+  only:
+  - master
+python:
+- '3.6'
+install:
+- pip install -U pip
+- pip install -r requirements.txt
+script:
+- touch .nojekyll
+- ablog build
+after_success:
+  #test the docs
+deploy:
+  provider: pages
+  skip_cleanup: true
+  github_token: $GITHUB_TOKEN
+  local_dir: _website
+  on:
+    branch: master
+  notifications:
+    email:
+      recipients:
+        - nobody@localhost
+      on_success: never
+      on_failure: always
+
