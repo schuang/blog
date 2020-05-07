@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 
-# Shao-Ching's blog build configuration file, created by
-# `ablog start` on Fri May 17 20:13:35 2019.
+# Advanced Computation Review build configuration file, created by
+# `ablog start` on Thu May  7 14:15:12 2020.
 #
 # Note that not all possible configuration values are present in this file.
 # All configuration values have a default; values that are commented out
@@ -16,14 +16,14 @@ import alabaster
 # -- General ABlog Options ----------------------------------------------------
 
 # A path relative to the configuration directory for blog archive pages.
-#blog_path = 'blog'
+blog_path = 'blog'
 
 # The "title" for the blog, used in active pages.  Default is ``'Blog'``.
-blog_title = u'Blog'
+blog_title = u'Advanced Computation Review'
 
 # Base URL for the website, required for generating feeds.
 # e.g. blog_baseurl = "http://example.com/"
-blog_baseurl = u'True'
+blog_baseurl = u''
 
 # Choose to archive only post titles. Archiving only titles can speed
 # up project building.
@@ -35,7 +35,7 @@ blog_baseurl = u'True'
 # links. Dictionary keys are what should be used in ``post`` directive
 # to refer to the author.  Default is ``{}``.
 blog_authors = {
-    'Shao-Ching Huang': ('Shao-Ching Huang', None),
+    'HPC Research Group': ('HPC Research Group', None),
 }
 
 
@@ -53,15 +53,14 @@ blog_authors = {
 # keys should be used in ``post`` directive to refer to the locations.
 # Default is ``{}``.
 #blog_locations = {
-#    'Earth': ('The Blue Planet', 'http://en.wikipedia.org/wiki/Earth),
+#    'Earth': ('The Blue Planet', 'https://en.wikipedia.org/wiki/Earth),
 #}
-
 
 # -- Blog Post Related --------------------------------------------------------
 
-# post_date_format = '%b %d, %Y'
+# Format date for a post.
+#post_date_format = '%b %d, %Y'
 post_date_format = '%Y-%m-%d'
-
 
 # Number of paragraphs (default is ``1``) that will be displayed as an excerpt
 # from the post. Setting this ``0`` will result in displaying no post excerpt
@@ -83,6 +82,12 @@ post_date_format = '%Y-%m-%d'
 # behavior when :rst:dir:`post` is used multiple times in a document. Default
 # is ``False``.
 #post_always_section = False
+
+# When ``False``, the :rst:dir:`orphan` directive is not automatically set
+# for each post. Without this directive, Sphinx will warn about posts that
+# are not explicitly referenced via another document. :rst:dir:`orphan` can
+# be set on a per-post basis as well if this is false. Default is ``True``.
+#post_auto_orphan = True
 
 # -- ABlog Sidebars -------------------------------------------------------
 
@@ -127,8 +132,8 @@ html_sidebars = {
 # is ``True``
 
 # Link to `Font Awesome`_ at `Bootstrap CDN`_ and use icons in sidebars
-# and post footers.  Default: ``False``
-fontawesome_link_cdn = True
+# and post footers.  Default: ``None``
+#fontawesome_link_cdn = None
 
 # Sphinx_ theme already links to `Font Awesome`_.  Default: ``False``
 #fontawesome_included = False
@@ -181,9 +186,9 @@ source_suffix = '.rst'
 master_doc = 'index'
 
 # General information about the project.
-project = u'Shao-Ching\'s blog'
-copyright = u'2019, Shao-Ching Huang'
-author = u'Shao-Ching Huang'
+project = u'Advanced Computation Review'
+copyright = u'2020, HPC Research Group'
+author = u'HPC Research Group'
 
 # The version info for the project you're documenting, acts as replacement for
 # |version| and |release|, also used in various other places throughout the
@@ -224,7 +229,7 @@ exclude_patterns = []
 
 # If true, sectionauthor and moduleauthor directives will be shown in the
 # output. They are ignored by default.
-show_authors = False
+#show_authors = False
 
 # The name of the Pygments (syntax highlighting) style to use.
 pygments_style = 'sphinx'
@@ -289,9 +294,6 @@ html_static_path = ['_static']
 # typographically correct entities.
 #html_use_smartypants = True
 
-# Custom sidebar templates, maps document names to template names.
-#html_sidebars = {}
-
 # Additional templates that should be rendered to pages, maps page names to
 # template names.
 #html_additional_pages = {}
@@ -306,10 +308,10 @@ html_static_path = ['_static']
 #html_split_index = False
 
 # If true, links to the reST sources are added to the pages.
-html_show_sourcelink = False
+#html_show_sourcelink = True
 
 # If true, "Created using Sphinx" is shown in the HTML footer. Default is True.
-html_show_sphinx = False
+#html_show_sphinx = True
 
 # If true, "(C) Copyright ..." is shown in the HTML footer. Default is True.
 #html_show_copyright = True
@@ -337,6 +339,6 @@ html_show_sphinx = False
 #html_search_scorer = 'scorer.js'
 
 # Output file base name for HTML help builder.
-htmlhelp_basename = 'Shao-Chingsblogdoc'
+htmlhelp_basename = 'AdvancedComputationReviewdoc'
 
 

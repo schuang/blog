@@ -1,5 +1,7 @@
-
 .. _about:
 
-coming soon
+About the group 
+============================
+
+Group intro here.
 
