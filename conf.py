@@ -112,6 +112,7 @@ html_sidebars = {
 # Choose to create feeds per author, location, tag, category, and year,
 # default is ``False``.
 #blog_feed_archives = False
+blog_feed_archives = True
 
 # Choose to display full text in blog feeds, default is ``False``.
 #blog_feed_fulltext = False

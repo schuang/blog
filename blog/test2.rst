@@ -2,7 +2,7 @@ Test2
 =====
 
 .. post:: May 07, 2020
-   :tags:
+   :tags: pandas, python, numpy
    :category:
    :author: Writer3
 
