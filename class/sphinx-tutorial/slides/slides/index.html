@@ -1,0 +1,438 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>title: A Breif Introduction to Sphinx subtitle: Technical Documentation with Continuous Integration and Deployment author: Shao-Ching Huang date: 2019-10-31 &#8212; Advanced Computation Review  documentation</title>
+    <link rel="stylesheet" href="../../../../_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="../../../../_static/pygments.css" type="text/css" />
+    <script id="documentation_options" data-url_root="../../../../" src="../../../../_static/documentation_options.js"></script>
+    <script src="../../../../_static/jquery.js"></script>
+    <script src="../../../../_static/underscore.js"></script>
+    <script src="../../../../_static/doctools.js"></script>
+    <script src="../../../../_static/language_data.js"></script>
+    <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true, "ignoreClass": "document", "processClass": "math|output_area"}})</script>
+    <link rel="author" title="About these documents" href="../../../../about/" />
+    <link rel="index" title="Index" href="../../../../genindex/" />
+    <link rel="search" title="Search" href="../../../../search/" />
+  
+   
+  <link rel="stylesheet" href="../../../../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  
+  
+  <style type="text/css">
+    ul.ablog-archive {list-style: none; overflow: auto; margin-left: 0px}
+    ul.ablog-archive li {float: left; margin-right: 5px; font-size: 80%}
+    ul.postlist a {font-style: italic;}
+    ul.postlist-style-disc {list-style-type: disc;}
+    ul.postlist-style-none {list-style-type: none;}
+    ul.postlist-style-circle {list-style-type: circle;}
+  </style>
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <hr class="docutils" />
+<div class="section" id="title-a-breif-introduction-to-sphinx-subtitle-technical-documentation-with-continuous-integration-and-deployment-author-shao-ching-huang-date-2019-10-31">
+<h1>title: A Breif Introduction to Sphinx
+subtitle:  Technical Documentation with Continuous Integration and Deployment
+author: Shao-Ching Huang
+date: 2019-10-31<a class="headerlink" href="#title-a-breif-introduction-to-sphinx-subtitle-technical-documentation-with-continuous-integration-and-deployment-author-shao-ching-huang-date-2019-10-31" title="Permalink to this headline">¶</a></h1>
+</div>
+<div class="section" id="technical-documentation-system-considerations">
+<h1>Technical documentation system: considerations<a class="headerlink" href="#technical-documentation-system-considerations" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>Not the same as writing a blog article</p></li>
+<li><p>Writing</p>
+<ul>
+<li><p>Focus on contents and structures, strict and fixed formatting</p></li>
+<li><p>Principle of separation: contents vs. layout</p></li>
+</ul>
+</li>
+<li><p>Review</p>
+<ul>
+<li><p>easy to see changes, revert, comment, collaborate etc</p></li>
+</ul>
+</li>
+<li><p>Other considerations</p>
+<ul>
+<li><p>Subject experts are not necessarily web developers</p></li>
+<li><p>Multiple formats generated from the same source (e.g. web pages and pdf report/manual)</p></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="what-is-sphinx">
+<h1>What is Sphinx<a class="headerlink" href="#what-is-sphinx" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>Sphinx converts reStructuredText files into HTML websites and PDF, EPub, Texinfo and man.</p></li>
+<li><p>reStructuredText (RST, ReST, or reST) is a file format for textual data for technical documentation.</p>
+<ul>
+<li><p>a more powerful markdown without diverging flavors</p></li>
+</ul>
+</li>
+</ul>
+<p><img alt="../../../../_images/sphinx-website.png" src="../../../../_images/sphinx-website.png" /></p>
+</div>
+<div class="section" id="advantages-of-using-sphinx">
+<h1>Advantages of using Sphinx<a class="headerlink" href="#advantages-of-using-sphinx" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>Based on text files (close to plain text)</p>
+<ul>
+<li><p>Use one’s favoriate editor/local environment for writing</p></li>
+<li><p>Easy to track changes using version control</p></li>
+<li><p>Standard git pull (or merge) request review process</p></li>
+<li><p>Easy to programmatically manipulate the text files, if needed</p></li>
+<li><p>The entire workflow is open-source based, no vendor lock-in</p></li>
+</ul>
+</li>
+<li><p>Generate static HTML pages</p>
+<ul>
+<li><p>No security concerns</p></li>
+<li><p>No need to maintain WordPress that often “automatically” breaks</p></li>
+<li><p>Can use free hosting services (github, gitlab, read the docs, etc.) if desired</p></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="sphinx-demo">
+<h1>Sphinx demo<a class="headerlink" href="#sphinx-demo" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>view the source</p>
+<ul>
+<li><p><a class="reference external" href="https://github.com/schuang/sphinx-tutorial"><code class="docutils literal notranslate"><span class="pre">https://github.com/schuang/sphinx-tutorial</span></code></a></p></li>
+</ul>
+</li>
+<li><p>view the site</p>
+<ul>
+<li><p><a class="reference external" href="https://schuang.github.io/sphinx-tutorial"><code class="docutils literal notranslate"><span class="pre">https://schuang.github.io/sphinx-tutorial</span></code></a></p></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="using-sphinx-with-ci-the-big-picture">
+<h1>Using Sphinx with CI: the big picture<a class="headerlink" href="#using-sphinx-with-ci-the-big-picture" title="Permalink to this headline">¶</a></h1>
+<p><img alt="../../../../_images/big-picture.pdf" src="../../../../_images/big-picture.pdf" /></p>
+</div>
+<div class="section" id="continuous-integration-deployment-ci-cd">
+<h1>Continuous integration/deployment (CI/CD)<a class="headerlink" href="#continuous-integration-deployment-ci-cd" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>A software engineering technique to integrate early and often to avoid “integration hell”</p></li>
+<li><p>Best practices:</p>
+<ul>
+<li><p>Automate the build</p></li>
+<li><p>Commit changes to repository regularly</p></li>
+<li><p>Every commit is built and tested</p></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="travis-ci">
+<h1>Travis CI<a class="headerlink" href="#travis-ci" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>Travis CI is a hosted contiguous integration service</p></li>
+<li><p>Integration with GitHub</p></li>
+<li><p>Free for open-source projects, paid plans for private repositories</p></li>
+<li><p>Web site: https://travis-ci.com/</p></li>
+</ul>
+<p>There are also <a class="reference external" href="https://en.wikipedia.org/wiki/Comparison_of_continuous_integration_software">several other popular CI systems</a> with a variety of build systems (C, C++, Python, PHP, etc.)</p>
+</div>
+<div class="section" id="enabling-travis-ci-on-a-github-repository">
+<h1>Enabling Travis CI on a Github repository<a class="headerlink" href="#enabling-travis-ci-on-a-github-repository" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>Create an access token in github.com</p></li>
+<li><p>Past the access token into Travis CI to enable access to Github</p>
+<ul>
+<li><p>e.g. <code class="docutils literal notranslate"><span class="pre">$GITHUB_TOKEN</span></code></p></li>
+<li><p>Use it in <code class="docutils literal notranslate"><span class="pre">.travis.yml</span></code></p></li>
+</ul>
+</li>
+<li><p>Other CI/CDs have a similar procedure, e.g. <code class="docutils literal notranslate"><span class="pre">gitlab.com</span></code></p></li>
+</ul>
+</div>
+<div class="section" id="github-com-personal-access-token">
+<h1>github.com personal access token<a class="headerlink" href="#github-com-personal-access-token" title="Permalink to this headline">¶</a></h1>
+<p><img alt="../../../../_images/github-access-token.png" src="../../../../_images/github-access-token.png" /></p>
+</div>
+<div class="section" id="travis-ci-com-environment-variable">
+<h1>travis-ci.com environment variable<a class="headerlink" href="#travis-ci-com-environment-variable" title="Permalink to this headline">¶</a></h1>
+<p><img alt="../../../../_images/travis-ci-env-var.png" src="../../../../_images/travis-ci-env-var.png" /></p>
+</div>
+<div class="section" id="yaml-to-control-the-ci-process-allowframebreaks">
+<h1>YAML to control the CI process {.allowframebreaks}<a class="headerlink" href="#yaml-to-control-the-ci-process-allowframebreaks" title="Permalink to this headline">¶</a></h1>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ cat .travis.yml
+</pre></div>
+</div>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">language</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">python</span>
+<span class="nt">branches</span><span class="p">:</span>
+  <span class="nt">only</span><span class="p">:</span>
+  <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">master</span>
+<span class="nt">python</span><span class="p">:</span>
+<span class="p p-Indicator">-</span> <span class="s">&#39;3.6&#39;</span>
+<span class="nt">install</span><span class="p">:</span>
+<span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">pip install -U pip</span>
+<span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">pip install -r requirements.txt</span>
+<span class="nt">script</span><span class="p">:</span>
+<span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">make html</span>
+<span class="nt">deploy</span><span class="p">:</span>
+  <span class="nt">provider</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">pages</span>
+  <span class="nt">skip_cleanup</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">true</span>
+  <span class="nt">github_token</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">$GITHUB_TOKEN</span>
+  <span class="nt">local_dir</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">build/html</span>
+  <span class="nt">on</span><span class="p">:</span>
+    <span class="nt">branch</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">master</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="pip-install-additional-packages">
+<h1>pip-install additional packages<a class="headerlink" href="#pip-install-additional-packages" title="Permalink to this headline">¶</a></h1>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ cat requirements.txt 
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sphinx</span>
+<span class="n">sphinx_rtd_theme</span>
+<span class="n">recommonmark</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="travis-ci-jobs">
+<h1>Travis CI jobs<a class="headerlink" href="#travis-ci-jobs" title="Permalink to this headline">¶</a></h1>
+<p><img alt="../../../../_images/travis-ci-jobs.png" src="../../../../_images/travis-ci-jobs.png" /></p>
+</div>
+<div class="section" id="useful-sphinx-settings-in-conf-py">
+<h1>Useful Sphinx settings in <code class="docutils literal notranslate"><span class="pre">conf.py</span></code><a class="headerlink" href="#useful-sphinx-settings-in-conf-py" title="Permalink to this headline">¶</a></h1>
+<p>To support Github pages:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">extensions</span> <span class="o">=</span> <span class="p">[</span> <span class="s1">&#39;sphinx.ext.mathjax&#39;</span><span class="p">,</span>
+               <span class="s1">&#39;sphinx.ext.githubpages&#39;</span> <span class="p">]</span>
+</pre></div>
+</div>
+<p>To also support markdown source files:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">source_suffix</span> <span class="o">=</span> <span class="p">{</span> <span class="s1">&#39;.rst&#39;</span><span class="p">:</span> <span class="s1">&#39;restructuredtext&#39;</span><span class="p">,</span> 
+                  <span class="s1">&#39;.md&#39;</span> <span class="p">:</span> <span class="s1">&#39;markdown&#39;</span> <span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="travis-ci-demo">
+<h1>Travis CI demo<a class="headerlink" href="#travis-ci-demo" title="Permalink to this headline">¶</a></h1>
+<p>What to look:</p>
+<ul class="simple">
+<li><p>See the github repository and travis-ci.com</p></li>
+<li><p>Commit to github triggering Travis CI build job</p></li>
+<li><p>Watch the “job log” in real time</p></li>
+<li><p>Build status badge</p></li>
+</ul>
+</div>
+<div class="section" id="gitlab-pages-pipeline">
+<h1>gitlab pages pipeline<a class="headerlink" href="#gitlab-pages-pipeline" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>similar to Travis CI</p></li>
+<li><p>use <code class="docutils literal notranslate"><span class="pre">.gitlab-ci.yml</span></code> (different syntax than <code class="docutils literal notranslate"><span class="pre">.travis.yml</span></code>)</p></li>
+<li><p>Can use arbitrary docker image from docker hub</p></li>
+<li><p>CI is ingegrated in gitlab, so no need to create the access token</p></li>
+<li><p>use <code class="docutils literal notranslate"><span class="pre">/public</span></code></p></li>
+</ul>
+</div>
+<div class="section" id="id1">
+<h1><a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h1>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ cat .gitlab-ci.yml 
+</pre></div>
+</div>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">image</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">python:3.6</span>
+
+<span class="nt">pages</span><span class="p">:</span>
+  <span class="nt">script</span><span class="p">:</span>
+    <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">pip install -U pip</span>
+    <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">pip install -r requirements.txt</span>
+    <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">make html</span>
+    <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">mv build/html/ public/</span>
+  <span class="nt">artifacts</span><span class="p">:</span>
+    <span class="nt">paths</span><span class="p">:</span>
+      <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">public</span>
+  <span class="nt">only</span><span class="p">:</span>
+    <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">master</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="gitlab-pipeline-jobs">
+<h1>gitlab pipeline jobs<a class="headerlink" href="#gitlab-pipeline-jobs" title="Permalink to this headline">¶</a></h1>
+<p><img alt="../../../../_images/gitlab-pipeline-jobs.png" src="../../../../_images/gitlab-pipeline-jobs.png" /></p>
+</div>
+<div class="section" id="summary-allowframebreaks">
+<h1>Summary   {.allowframebreaks}<a class="headerlink" href="#summary-allowframebreaks" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>Sphinx is powerful documentation generator</p>
+<ul>
+<li><p>Designed for technical documentation, used by many projects</p></li>
+<li><p>Can easily include images, math, and code listing in style</p></li>
+<li><p>Static web pages are light-weight, robust, and have no security issues</p></li>
+</ul>
+</li>
+<li><p>Single source, multiple output formats</p>
+<ul>
+<li><p>Separation of contents and display formatting/layout</p></li>
+<li><p>Contents written in plain texts, formatting controlled by css/template/etc.</p></li>
+<li><p>Ideal for git-based version control (pull/merge request etc.)</p></li>
+</ul>
+</li>
+<li><p>Contiguous Integration (CI) automate rebuild when there is a change</p>
+<ul>
+<li><p>Travis CI builds from Github sources, place HTML on Github pages</p></li>
+<li><p>Total control of the documentation production process, including themes</p></li>
+<li><p>CI can be applied to other actions (by essentially arbrary scripts)</p></li>
+</ul>
+</li>
+<li><p>Freedom of having different hosting options</p>
+<ul>
+<li><p>Local web server (i.e. just copy the HTML directory) - total control</p></li>
+<li><p>Github/Gitlab pages using contiguous integration (CI) - total control</p></li>
+<li><p>Hosting service like Read the Docs (but have to following their format/style) - partial control</p></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="final-thoughts">
+<h1>Final thoughts<a class="headerlink" href="#final-thoughts" title="Permalink to this headline">¶</a></h1>
+<p>Of course, Sphinx is a tool to build documentation. A tool does not automatically make the contents good.</p>
+</div>
+
+  <div class="section">
+  
+  
+  </div>
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="../../../../">Advanced Computation Review</a></h1>
+
+
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../sphinx/source/">Sphinx tutorial</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../about/">About the group</a></li>
+</ul>
+
+
+  <h3><a href="../../../../blog/">Recent Posts</a></h3>
+  <ul>
+    
+    
+      <li><a href="../../../../blog/first-post/">07 May - Using MPI for Parallel Computing</a></li>
+    
+      <li><a href="../../../../blog/test2/">07 May - Test2</a></li>
+    
+      <li><a href="../../../../blog/post2/">07 May - A randomized topic on a special subject</a></li>
+    
+  </ul>
+
+  <h3><a href="../../../../blog/tag/">Tags</a></h3>
+  <style type="text/css">
+    ul.ablog-cloud {list-style: none; overflow: auto;}
+    ul.ablog-cloud li {float: left; height: 20pt; line-height: 18pt; margin-right: 5px;}
+    ul.ablog-cloud a {text-decoration: none; vertical-align: middle;}
+    li.ablog-cloud-1{font-size: 80%;}
+    li.ablog-cloud-2{font-size: 95%;}
+    li.ablog-cloud-3{font-size: 110%;}
+    li.ablog-cloud-4{font-size: 125%;}
+    li.ablog-cloud-5{font-size: 140%;}
+  </style>
+  <ul class="ablog-cloud">
+    
+      
+      <li class="ablog-cloud ablog-cloud-1">
+        <a href="../../../../blog/tag/mpi/">MPI</a></li>
+      
+    
+      
+      <li class="ablog-cloud ablog-cloud-1">
+        <a href="../../../../blog/tag/jupyter/">jupyter</a></li>
+      
+    
+      
+      <li class="ablog-cloud ablog-cloud-1">
+        <a href="../../../../blog/tag/numpy/">numpy</a></li>
+      
+    
+      
+      <li class="ablog-cloud ablog-cloud-1">
+        <a href="../../../../blog/tag/pandas/">pandas</a></li>
+      
+    
+      
+      <li class="ablog-cloud ablog-cloud-5">
+        <a href="../../../../blog/tag/python/">python</a></li>
+      
+    
+  </ul>
+
+  <h3><a href="../../../../blog/archive/">Archives</a></h3>
+  <ul>
+  
+    
+    <li><a href="../../../../blog/2020/">2020 (2)</a></li>
+    
+  
+    
+    <li><a href="../../../../blog/2019/">2019 (1)</a></li>
+    
+  
+  </ul>
+
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../../../../search/" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2020, HPC Research Group.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 3.0.3</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="../../../../_sources/class/sphinx-tutorial/slides/slides.md.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>
