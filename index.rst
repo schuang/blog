@@ -15,6 +15,13 @@ Recent posts:
    Posts are excluded from this directive so that they aren't double listed
    in the sidebar both under Navigation and Recent Posts.
 
+Classes and Presentations:
+
+.. toctree::
+   :maxdepth: 1
+
+   class/sphinx-tutorial/sphinx/source/index.rst
+
 .. toctree::
    :hidden:
 
