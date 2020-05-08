@@ -1,9 +1,20 @@
+# ubuntu 18.04
+dist: bionic
+
 language: python
 branches:
   only:
   - master
 python:
 - '3.6'
+addons:
+  apt_packages:
+    - pandoc
+    - texlive-latex-base
+    - latexmk
+    - texlive-latex-recommended
+    - texlive-latex-extra
+    - texlive-full
 install:
 - pip install -U pip
 - pip install -r requirements.txt
